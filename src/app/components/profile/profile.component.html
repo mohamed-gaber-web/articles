@@ -1,0 +1,15 @@
+<div class="container">
+  <div *ngIf="userCheck; else sh">
+  <h2> Profile </h2>
+</div>
+<ng-template #sh>
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, Login !</h1>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <p class="lead">
+        <a href="" routerLink='/login' class="btn btn-primary btn-lg"> Login </a>
+      </p>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div *ngIf='userCheck; else sh'>
+    <form #cat="ngForm">
+      <h2> Add Category </h2>
+
+      <div class="form-group">
+        <label for="category"> Category Name </label>
+        <input type="text" name="cat_name" id='category' class="form-control" ngModel [(ngModel)]="category_name">
+      </div>
+      <button class="btn btn-primary" (click)="addCat(cat.value)"> Save Category </button>
+    </form>
+
+    <table class="table">
+      <thead>
+        <th>#</th>
+        <th>Category Name</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr *ngFor='let cat of category'>
+          <td>{{ cat.payload.doc.id }}</td>
+          <td> {{cat.payload.doc.data().cat_name}} </td>
+          <td>
+            <button class="btn btn-danger" (click)='delete(cat.payload.doc.id)'> Delete </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #sh>
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, Login !</h1>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <p class="lead">
+        <a href="" routerLink='/login' class="btn btn-primary btn-lg"> Login </a>
+      </p>
+    </div>
+  </ng-template>
+
+</div>

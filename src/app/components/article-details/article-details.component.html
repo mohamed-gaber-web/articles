@@ -1,0 +1,33 @@
+<div class="container">
+  <div *ngIf='userCheck; else sh'>
+    <div *ngIf="articles">
+    <div class="well">
+      <div class="media">
+      	<a class="pull-left" href="#">
+    		<img class="media-object" src="https://s7386.pcdn.co/wp-content/uploads/edd/2016/04/add-on-affiliate-area-tabs-771x386.png">
+  		</a>
+  		<div class="media-body">
+    		<h4 class="media-heading">{{ articles.name }}</h4>
+          <!-- <p class="text-right person">By {{ email }}</p> -->
+          <p>
+            {{ articles.content }}
+          </p>
+       </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+  <ng-template #sh>
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, Login Or Register !</h1>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <p class="lead">
+        <a href="" routerLink='/login' class="btn btn-primary btn-lg"> Login </a>
+        <a href="" routerLink='/register' class="btn btn-primary btn-lg"> Register </a>
+      </p>
+    </div>
+  </ng-template>
+
+</div>

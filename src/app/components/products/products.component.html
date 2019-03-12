@@ -1,0 +1,55 @@
+<div class="container">
+  <div *ngIf='userCheck; else sh'>
+    <form #art="ngForm">
+      <div class="form-group">
+        <label for="articleName"> Article Name </label>
+        <input type="text" name="name" id='articleName' class="form-control" required ngModel [(ngModel)]="Aname"
+          #articleName="ngModel">
+
+      </div>
+      <div class="alert alert-danger" *ngIf='articleName.invalid && articleName.touched'> Article Name Is Required
+      </div>
+
+      <div class="form-group">
+        <label for="content"> Article Content </label>
+        <textarea type="text" name="content" id='content' class="form-control" required ngModel #content="ngModel"
+          [(ngModel)]="AContent">
+        </textarea>
+      </div>
+      <div class="alert alert-danger" *ngIf='content.invalid && content.touched'> Article content Is Required </div>
+      <div class="form-group">
+        <label for="cat"> Article Category </label>
+        <select name="cat" id="cat" class="form-control" required ngModel #cat="ngModel" [(ngModel)]="ACategory">
+          <option value="0"> Choose Category </option>
+          <option [value]="cat.payload.doc.data().cat_name " *ngFor="let cat of categories">{{ cat.payload.doc.data().cat_name }}</option>
+        </select>
+      </div>
+      <div class="alert alert-danger" *ngIf='cat.invalid && cat.touched'> Category Is Required </div>
+
+      <div class="form-group">
+        <label for="image"> Article Image </label>
+        <input type="file" name="image" id='image' class="form-control" ngModel #image="ngModel" [(ngModel)]="AImage">
+      </div>
+
+      <div class="form-group">
+        <label for="date"> Article Date </label>
+        <input type="date" name="date" id='date' class="form-control" ngModel #date="ngModel" [(ngModel)]="ADate">
+      </div>
+
+      <button class="btn btn-primary" (click)="saveArticle(art.value)" [disabled]='art.invalid'> Save Article </button>
+    </form>
+  </div>
+
+  <ng-template #sh>
+
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, Login Or Register !</h1>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <p class="lead">
+        <a href="" routerLink='/login' class="btn btn-primary btn-lg"> Login </a>
+        <a href="" routerLink='/register' class="btn btn-primary btn-lg"> Register </a>
+      </p>
+    </div>
+  </ng-template>
+</div>

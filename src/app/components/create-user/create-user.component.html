@@ -1,0 +1,55 @@
+<div class="container register-form">
+  <div class="form">
+    <div class="note">
+      <p>Create New User</p>
+    </div>
+
+    <div class="form-content">
+      <form #f='ngForm'>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Username" name='username' ngModel required
+                #userValid='ngModel'>
+            </div>
+            <div class="alert alert-danger" *ngIf='userValid.invalid && userValid.touched'> Username Is Required </div>
+
+            <div class="form-group">
+              <input type="number" class="form-control" placeholder="Your Phone" name='phone' ngModel required
+                #phoneValid='ngModel'>
+            </div>
+            <div class="alert alert-danger" *ngIf='phoneValid.invalid && phoneValid.touched'> Phpne Is Required </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Email" name='email' ngModel [(ngModel)]='email'
+                required email #emailValid='ngModel'>
+            </div>
+            <div class="alert alert-danger" *ngIf='emailValid.invalid && emailValid.touched'> Email Is Required </div>
+            <p class="alert alert-danger" *ngIf="emailValid.errors?.email">Email Write Error</p>
+
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Password" name='password' ngModel
+                [(ngModel)]='password' #pass='ngModel' required #passValid='ngModel' minlength="8">
+
+            </div>
+            <div class="alert alert-danger" *ngIf="passValid.touched && passValid.errors?.minlength">Password Min 8 Char
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Password" name='passwordConfirm' ngModel
+                #passConfirm='ngModel' required>
+
+            </div>
+            
+            <div class="alert alert-danger" *ngIf='passConfirm.value != passValid.value && passConfirm.touched'>
+              Passwords Are Not Equal </div>
+
+              <input type="hidden" name="admin" [(ngModel)]='admin' ngModel >
+          </div>
+        </div>
+        <button class="btnSubmit" (click)='createUser(f.value)'
+          [disabled]='f.invalid || passConfirm.value != pass.value'>Create</button>
+      </form>
+    </div>
+  </div>
+</div>

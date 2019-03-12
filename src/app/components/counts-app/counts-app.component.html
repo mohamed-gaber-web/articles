@@ -1,0 +1,24 @@
+<div class="parent-count" *ngIf="user; else sh">
+  <div class="col-lg-3 counts">
+    <h2> Articles </h2>
+    <span> {{CountArt}} </span>
+  </div>
+
+  <div class="col-lg-3 counts">
+    <h2> Category </h2>
+    <span> {{ CountCat }} </span>
+  </div>
+</div>
+
+<ng-template #sh>
+
+  <div class="jumbotron">
+    <h1 class="display-4">Hello, Login Or Register !</h1>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p class="lead">
+      <a href="" routerLink='/login' class="btn btn-primary btn-lg"> Login </a>
+      <a href="" routerLink='/register' class="btn btn-primary btn-lg"> Register </a>
+    </p>
+  </div>
+</ng-template>

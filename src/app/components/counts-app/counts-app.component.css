@@ -1,0 +1,27 @@
+.parent-count{
+    display: flex;
+    justify-content: center;
+}
+
+.counts{
+    background-color: #222f3e;
+    height: 200px;
+    padding: 20px;
+    text-align: center;
+    margin: 50px 10px;
+}
+
+.counts h2{
+    font-size: 40px;
+    color: #fff;
+}
+
+.counts span{
+    font-size: 60px;
+    color: #fff;
+}
+
+.jumbotron a{
+    margin-right: 10px;
+}
+

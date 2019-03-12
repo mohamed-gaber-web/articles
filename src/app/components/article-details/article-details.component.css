@@ -1,0 +1,30 @@
+.well{
+    margin-top: 80px;
+}
+
+.well p{
+    margin-left: 29px;
+    font-size: 17px;
+}
+
+.well h4{
+    font-size: 25px;
+    margin-left: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.well .person{
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.jumbotron a{
+    margin-left: 10px; 
+}
+
+.well img{
+    width: 300px;
+    height: auto;
+}

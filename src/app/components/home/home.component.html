@@ -1,0 +1,27 @@
+<div class="container">
+  <counts-app [CountArt]="countArticle" [CountCat]="countCategory"></counts-app>
+
+  <div *ngIf="userCheck">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let art of articles">
+        <div class="card">
+          <img class="card-img-top" src="https://s7386.pcdn.co/wp-content/uploads/edd/2016/04/add-on-affiliate-area-tabs-771x386.png"
+            alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ art.payload.doc.data().name }} </h5>
+            <p class="card-text">
+              {{ art.payload.doc.data().content | slice :0:101 }} ..... 
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ art.payload.doc.data().date }}</li>
+            <li class="list-group-item">{{ art.payload.doc.data().cat }}</li>
+          </ul>
+          <div class="card-body">
+            <a href="" class="card-link" routerLink="/articleDetails/{{art.payload.doc.id}}">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
